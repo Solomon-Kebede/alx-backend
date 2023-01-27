@@ -36,7 +36,7 @@ class LFUCache(BaseCaching):
                         )[list(self.store1.values()).index(lfu_val)]
                     del self.cache_data[lfu_key]
                     print(f'DISCARD: {lfu_key}')
-                    lru_key_value = self.store1[lfu_key]
+                    lfu_key_value = self.store1[lfu_key]
                     del self.store1[lfu_key]
                     self.store1[key] = 0
                     self.cache_data[key] = item
