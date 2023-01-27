@@ -12,7 +12,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class MRUCache(BaseCaching):
-    '''LIFO Cache'''
+    '''MRU Cache'''
     def __init__(self):
         '''Initialize cache'''
         super().__init__()
