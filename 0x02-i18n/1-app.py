@@ -25,14 +25,12 @@ from typing import Any
 
 app = Flask(__name__)
 babel = Babel(app)
-# babel = Babel(app=app, default_locale='en', default_timezone='UTC')
 
 
 class Config:
     """docstring for Config"""
     LANGUAGES = ["en", "fr"]
-    app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-    app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+    BABEL_DEFAULT_LOCALE = 'en'
 
 
 @app.route('/')
