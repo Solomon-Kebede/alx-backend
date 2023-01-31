@@ -20,6 +20,7 @@ Use that class as config for your Flask app.
 from flask import Flask
 from flask import render_template
 from flask_babel import Babel
+from typing import Any
 
 
 app = Flask(__name__)
@@ -35,6 +36,6 @@ class Config:
 
 
 @app.route('/')
-def home_page():
+def home_page() -> Any:
     '''Returns homepage'''
     return render_template('1-index.html')
