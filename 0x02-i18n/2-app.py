@@ -25,8 +25,12 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app.config.from_object(Config)
+
+
 @babel.localeselector
 def get_locale():
+    '''get_locale'''
     # if a user is logged in, use the locale from the user settings
     user = getattr(g, 'user', None)
     if user is not None:
