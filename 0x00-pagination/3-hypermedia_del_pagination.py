@@ -52,15 +52,11 @@ class Server:
         from the dataset, the user does not miss items from dataset
         when changing page
         """
-        # print('='*100)
         if index is not None:
             assert index < len(self.__dataset)
             if index + 1 < len(self.__dataset):
                 next_index = index + 1
             page = math.ceil(index/page_size)
-            # print(f"page={page}")
-        total_pages = math.ceil(len(self.dataset())/page_size)
-        # print(f"page_size = {page_size}, index = {index}")
         return {
             "index": index,
             "next_index": next_index,
