@@ -2,7 +2,8 @@ const kue = require('kue')
 let queue = kue.createQueue();
 
 function createPushNotificationsJobs(jobs, queue) {
-  if (Array.isArray(jobs)) {
+  //console.log(Array.isArray(jobs));
+  if (!Array.isArray(jobs)) {
     throw new Error("Jobs is not an array");
   }
   jobs.forEach((value) => {
@@ -26,3 +27,4 @@ function createPushNotificationsJobs(jobs, queue) {
   });
 };
 
+module.exports = createPushNotificationsJobs;
