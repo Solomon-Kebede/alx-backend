@@ -62,6 +62,20 @@ app.get('/list_products/:itemId', (request, response) => {
   }
 });
 
+app.get('/reserve_product/:itemId', (request, response) => {
+  const itemID = response.params.itemId;
+  const data = getCurrentReservedStockById(itemID);
+  if (data === undefined) {
+     //response.send(request.params);
+     response.json({"status":"Product not found"});
+  } else if (data.stock <= 1) {
+    response.json({"status": "Not enough stock available", "itemId": `${data.id}}`);
+  } else if (data.stock >= 2) {
+    response.json({"status": "Reservation confirmed", "itemId": `${data.id}}`);
+  }
+}
+
+
 const PORT = 1245;
 // express server listens on port
 app.listen(PORT, () => {
