@@ -19,6 +19,12 @@ function getItemById(id) {
 // Test function: getItemById
 //console.log(getItemById(1));
 
+
+app.get('/list_products', (request, response) => {
+  response.json(listProducts);
+});
+
+
 const PORT = 1245;
 // express server listens on port
 app.listen(PORT, () => {
