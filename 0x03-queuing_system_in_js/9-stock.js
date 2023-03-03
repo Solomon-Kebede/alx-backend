@@ -1,3 +1,8 @@
+// import express
+const express = require('express');
+// create an express app
+const app = express();
+
 // Create the following array
 const listProducts = [
   {id: 1, name: "Suitcase 250", price: 50, stock: 4},
@@ -6,8 +11,16 @@ const listProducts = [
   {id: 4, name: "Suitcase 1050", price: 550, stock: 5}
 ]
 
+// return item using id
 function getItemById(id) {
   return listProducts[id - 1];
 }
 
-console.log(getItemById(1));
+// Test function: getItemById
+//console.log(getItemById(1));
+
+const PORT = 1245;
+// express server listens on port
+app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
+});
