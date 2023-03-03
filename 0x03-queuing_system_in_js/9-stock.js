@@ -51,6 +51,16 @@ app.get('/list_products', (request, response) => {
   response.json(listProducts);
 });
 
+app.get('/list_products/:itemId', (request, response) => {
+  //response.json(listProducts);
+  const itemID = response.params.itemId;
+  if (getCurrentReservedStockById(itemID) === undefined) {
+     //response.send(request.params);
+     response.json({"status":"Product not found"});
+  } else {
+    response.json(getCurrentReservedStockById(itemID));
+  }
+});
 
 const PORT = 1245;
 // express server listens on port
