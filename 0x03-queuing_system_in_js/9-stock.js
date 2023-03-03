@@ -5,3 +5,9 @@ const listProducts = [
   {id: 3, name: "Suitcase 650", price: 350, stock: 2},
   {id: 4, name: "Suitcase 1050", price: 550, stock: 5}
 ]
+
+function getItemById(id) {
+  return listProducts[id - 1];
+}
+
+console.log(getItemById(1));
